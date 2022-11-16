@@ -1,4 +1,4 @@
-import { Component } from '../Component';
+import { Component } from '@uni-helper/uni-app-types';
 
 export interface TemplateProps {}
 

@@ -1,4 +1,4 @@
-import { Component } from '../Component';
+import { Component } from '@uni-helper/uni-app-types';
 
 /**
  * @desc 服务空间信息
