@@ -12,7 +12,7 @@ specifiers:
   '@types/node': ^18.11.9
   '@typescript-eslint/eslint-plugin': ^5.43.0
   '@typescript-eslint/parser': ^5.43.0
-  '@uni-helper/uni-app-types': ^0.1.7
+  '@uni-helper/uni-app-types': ^0.1.8
   commitizen: ^4.2.5
   eslint: ^8.27.0
   husky: ^8.0.2
@@ -27,7 +27,7 @@ specifiers:
 
 dependencies:
   '@dcloudio/types': 3.0.19
-  '@uni-helper/uni-app-types': 0.1.7
+  '@uni-helper/uni-app-types': 0.1.8
   vue3: /vue/3.2.45
 
 devDependencies:
@@ -1131,8 +1131,8 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@uni-helper/uni-app-types/0.1.7:
-    resolution: {integrity: sha512-HUKPRWSQ2fK4N/o7D8DMVgv73jEy2zlj+iHvrsGx4uJbHdgR4RHtz0Z21SgY9U0zLwmXezyIIxdRt6KWZbUKdQ==}
+  /@uni-helper/uni-app-types/0.1.8:
+    resolution: {integrity: sha512-JUoRsUyAbt8nZjviahXLwUxH8mmT5yLo2pcNIqAHOq5Oc7p7QvTXrjTXtqHQOFM4qNpsmTed56bRu0GPJUJIMg==}
     engines: {node: '>=14.16'}
     dependencies:
       '@dcloudio/types': 3.0.19
