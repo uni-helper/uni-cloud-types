@@ -1,15 +1,22 @@
-import { Component } from '@uni-helper/uni-app-types';
+import { Component, AnyRecord } from '@uni-helper/uni-app-types';
+
+/**
+ * @desc 服务商
+ * @desc aliyun 阿里云
+ * @desc tencent 腾讯云
+ */
+type _UnicloudDbSpaceInfoProvider = 'aliyun' | 'tencent';
 
 /**
  * @desc 服务空间信息
  */
-export interface UnicloudDbSpaceInfo {
+interface _UnicloudDbSpaceInfo {
   /**
    * @desc 服务商
    * @desc aliyun 阿里云
    * @desc tencent 腾讯云
    */
-  provider: 'aliyun' | 'tencent';
+  provider: _UnicloudDbSpaceInfoProvider;
   /**
    * @desc 服务空间 ID
    */
@@ -29,7 +36,7 @@ export interface UnicloudDbSpaceInfo {
  * @desc add 下一页的数据追加到之前的数据中，常用于滚动到底加载下一页
  * @desc replace 替换当前数据，常用于 PC 式交互，列表底部有页码分页按钮
  */
-export type UnicloudDbPageData = 'add' | 'replace';
+type _UnicloudDbPageData = 'add' | 'replace';
 
 /**
  * @desc 加载数据时机
@@ -37,13 +44,233 @@ export type UnicloudDbPageData = 'add' | 'replace';
  * @desc onready 页面就绪后不自动加载数据，属性变化后加载，适合在 onready 中接收上个页面的参数作为 where 条件时
  * @desc manual 手动模式，不自动加载数据，如果涉及到分页，需要先手动修改当前页再调用加载数据
  */
-export type UnicloudDbLoadtime = 'auto' | 'onready' | 'manual';
+type _UnicloudDbLoadtime = 'auto' | 'onready' | 'manual';
 
-export interface UnicloudDbProps {
+interface _UnicloudDbLoadDataOptions {
+  /**
+   * 是否清空数据和分页信息
+   */
+  clear: boolean;
+}
+
+interface _UnicloudDbLoadDataCallback {
+  (): any;
+}
+
+/**
+ * @desc 手动加载数据
+ * @param options.clear 是否清空数据和分页信息，默认为 false
+ * @param callback 回调函数，加载数据完或加载失败后触发
+ */
+interface _UnicloudDbLoadData {
+  (options?: _UnicloudDbLoadDataOptions, callback?: _UnicloudDbLoadDataCallback): void;
+}
+
+/**
+ * @desc 加载更多数据，每加载成功一次，当前页 +1
+ */
+interface _UnicloudDbLoadMore {
+  (): void;
+}
+
+/**
+ * @desc 清空已加载的数据，但不会重置当前分页信息
+ */
+interface _UnicloudDbClear {
+  (): void;
+}
+
+/**
+ * @desc 重置当前分页信息，但不会清空已加载的数据
+ */
+interface _UnicloudDbReset {
+  (): void;
+}
+
+/**
+ * @desc 清空并重新加载当前页面数据
+ */
+interface _UnicloudDbRefresh {
+  (): void;
+}
+
+/**
+ * @desc 单个数据 id
+ */
+type _UnicloudDbId = string;
+
+interface _UnicloudDbRemoveOptions {
+  /**
+   * @desc 云端执行数据库查询的前或后，触发某个 action 函数操作，进行预处理或后处理
+   */
+  action?: string;
+  /**
+   * @desc 删除确认框标题
+   * @desc 默认为 提示
+   */
+  confirmTitle?: string;
+  /**
+   * @desc 删除确认框提示
+   */
+  confirmContent?: string;
+  /**
+   * @desc 控制是否有弹出框
+   * @desc 默认为 true
+   */
+  needConfirm?: boolean;
+  /**
+   * @desc 是否显示 Loading
+   * @desc 默认为 true
+   */
+  needLoading?: boolean;
+  /**
+   * @desc loading 的标题
+   */
+  loadingTitle?: string;
+  /**
+   * @desc 成功回调
+   */
+  success?: ({ code, message }: { code: string; message: string }) => void | Promise<void>;
+  /**
+   * @desc 失败回调
+   */
+  fail?: ({ message: string }) => void | Promise<void>;
+  /**
+   * @desc 完成回调
+   */
+  complete?: () => void | Promise<void>;
+}
+
+/**
+ * @desc 删除一个 item
+ */
+interface _UnicloudDbRemove {
+  (id: _UnicloudDbId | _UnicloudDbId[], options?: _UnicloudDbRemoveOptions): void;
+}
+
+interface _UnicloudDbAddOptions {
+  /**
+   * @desc 云端执行数据库查询的前或后，触发某个 action 函数操作，进行预处理或后处理
+   */
+  action?: string;
+  /**
+   * @desc 是否显示更新成功后的提示框
+   * @desc 默认为 true
+   */
+  showToast?: boolean;
+  /**
+   * @desc 新增成功后的 toast 提示
+   * @desc 默认为 新增成功
+   */
+  toastTitle?: string;
+  /**
+   * @desc 是否显示 Loading
+   * @desc 默认为 true
+   */
+  needLoading?: boolean;
+  /**
+   * @desc loading 的标题
+   */
+  loadingTitle?: string;
+  /**
+   * @desc 成功回调
+   */
+  success?: ({ code, message }: { code: string; message: string }) => void | Promise<void>;
+  /**
+   * @desc 失败回调
+   */
+  fail?: ({ message: string }) => void | Promise<void>;
+  /**
+   * @desc 完成回调
+   */
+  complete?: () => void | Promise<void>;
+}
+
+/**
+ * @desc 新增一个 item
+ */
+interface _UnicloudDbAdd {
+  (value: AnyRecord, options?: _UnicloudDbAddOptions): void;
+}
+
+interface _UnicloudDbUpdateOptions {
+  /**
+   * @desc 云端执行数据库查询的前或后，触发某个 action 函数操作，进行预处理或后处理
+   */
+  action?: string;
+  /**
+   * @desc 是否显示更新成功后的提示框
+   * @desc 默认为 true
+   */
+  showToast?: boolean;
+  /**
+   * @desc 新增成功后的 toast 提示
+   * @desc 默认为 修改成功
+   */
+  toastTitle?: string;
+  /**
+   * @desc 控制是否有弹出框
+   * @desc 默认为 true
+   */
+  needConfirm?: boolean;
+  /**
+   * @desc 是否显示 Loading
+   * @desc 默认为 true
+   */
+  needLoading?: boolean;
+  /**
+   * @desc loading 的标题
+   */
+  loadingTitle?: string;
+  /**
+   * @desc 成功回调
+   */
+  success?: ({ code, message }: { code: string; message: string }) => void | Promise<void>;
+  /**
+   * @desc 失败回调
+   */
+  fail?: ({ message: string }) => void | Promise<void>;
+  /**
+   * @desc 完成回调
+   */
+  complete?: () => void | Promise<void>;
+}
+
+/**
+ * @desc 更新一个 item
+ */
+interface _UnicloudDbUpdate {
+  (id: _UnicloudDbId, value: AnyRecord, options?: _UnicloudDbUpdateOptions): void;
+}
+
+/**
+ * @desc 成功回调
+ * @desc 联网返回结果后，若希望先修改下数据再渲染界面，则在本方法里对 data 进行修改
+ * @param data 当前查询结果
+ * @param ended 是否有更多数据
+ * @param pagination 分页信息
+ * @param pagination.size 每页数据量
+ * @param pagination.count 数据总量
+ */
+interface _UnicloudDbLoad {
+  (data: any, ended: boolean, pagination: { size: number; count: number }): void;
+}
+
+/**
+ * @desc 失败回调
+ */
+interface _UnicloudDbError {
+  (event: { message: string }): void;
+}
+
+/**
+ * @desc 数据库查询组件属性
+ */
+interface _UnicloudDbProps {
   /**
    * @desc 服务空间信息
    */
-  spaceInfo: UnicloudDbSpaceInfo;
+  spaceInfo: _UnicloudDbSpaceInfo;
   /**
    * @desc 表名
    */
@@ -69,7 +296,7 @@ export interface UnicloudDbProps {
    * @desc replace 替换当前数据，常用于 PC 式交互，列表底部有页码分页按钮
    * @desc 默认为 add
    */
-  pageData: UnicloudDbPageData;
+  pageData: _UnicloudDbPageData;
   /**
    * @desc 当前页
    */
@@ -129,7 +356,7 @@ export interface UnicloudDbProps {
    * @desc manual 手动模式，不自动加载数据，如果涉及到分页，需要先手动修改当前页再调用加载数据
    * @desc 默认 auto
    */
-  loadtime: UnicloudDbLoadtime;
+  loadtime: _UnicloudDbLoadtime;
   /**
    * @desc 发行 H5 ssr 时有效，用于保证服务器端渲染和前端加载的数据对应
    * @desc 页面同时出现 2 个及以上 unicloud-db 组件需要配置此属性，且要保证值整个应用唯一
@@ -141,190 +368,35 @@ export interface UnicloudDbProps {
    * @param param.clear 是否清空数据和分页信息，默认为 false
    * @param callback 回调函数，加载数据完或加载失败后触发
    */
-  loadData: ({ clear }?: { clear: boolean }, callback?: () => any) => void;
+  loadData: _UnicloudDbLoadData;
   /**
    * @desc 加载更多数据，每加载成功一次，当前页 +1
    */
-  loadMore: () => void;
+  loadMore: _UnicloudDbLoadMore;
   /**
    * @desc 清空已加载的数据，但不会重置当前分页信息
    */
-  clear: () => void;
+  clear: _UnicloudDbClear;
   /**
    * @desc 重置当前分页信息，但不会清空已加载的数据
    */
-  reset: () => void;
+  reset: _UnicloudDbReset;
   /**
    * @desc 清空并重新加载当前页面数据
    */
-  refresh: () => void;
+  refresh: _UnicloudDbRefresh;
   /**
    * @desc 删除一个 item
    */
-  remove: (
-    id: string | string[],
-    {
-      action,
-      confirmTitle,
-      confirmContent,
-      needConfirm,
-      needLoading,
-      loadingTitle,
-      success,
-      fail,
-      complete,
-    }?: {
-      /**
-       * @desc 云端执行数据库查询的前或后，触发某个 action 函数操作，进行预处理或后处理
-       */
-      action?: string;
-      /**
-       * @desc 删除确认框标题
-       * @desc 默认为 提示
-       */
-      confirmTitle?: string;
-      /**
-       * @desc 删除确认框提示
-       */
-      confirmContent?: string;
-      /**
-       * @desc 控制是否有弹出框
-       * @desc 默认为 true
-       */
-      needConfirm?: boolean;
-      /**
-       * @desc 是否显示 Loading
-       * @desc 默认为 true
-       */
-      needLoading?: boolean;
-      /**
-       * @desc loading 的标题
-       */
-      loadingTitle?: string;
-      /**
-       * @desc 成功回调
-       */
-      success?: ({ code, message }: { code: string; message: string }) => void | Promise<void>;
-      /**
-       * @desc 失败回调
-       */
-      fail?: ({ message: string }) => void | Promise<void>;
-      /**
-       * @desc 完成回调
-       */
-      complete?: () => void | Promise<void>;
-    },
-  ) => void;
+  remove: _UnicloudDbRemove;
   /**
    * @desc 新增一个 item
    */
-  add: (
-    value: Record<string, any>,
-    {
-      action,
-      showToast,
-      toastTitle,
-      needLoading,
-      loadingTitle,
-      success,
-      fail,
-      complete,
-    }?: {
-      /**
-       * @desc 云端执行数据库查询的前或后，触发某个 action 函数操作，进行预处理或后处理
-       */
-      action?: string;
-      /**
-       * @desc 是否显示更新成功后的提示框
-       * @desc 默认为 true
-       */
-      showToast?: boolean;
-      /**
-       * @desc 新增成功后的 toast 提示
-       * @desc 默认为 新增成功
-       */
-      toastTitle?: string;
-      /**
-       * @desc 是否显示 Loading
-       * @desc 默认为 true
-       */
-      needLoading?: boolean;
-      /**
-       * @desc loading 的标题
-       */
-      loadingTitle?: string;
-      /**
-       * @desc 成功回调
-       */
-      success?: ({ code, message }: { code: string; message: string }) => void | Promise<void>;
-      /**
-       * @desc 失败回调
-       */
-      fail?: ({ message: string }) => void | Promise<void>;
-      /**
-       * @desc 完成回调
-       */
-      complete?: () => void | Promise<void>;
-    },
-  ) => void;
+  add: _UnicloudDbAdd;
   /**
    * @desc 更新一个 item
    */
-  update: (
-    id: string,
-    value: Record<string, any>,
-    {
-      action,
-      showToast,
-      toastTitle,
-      needLoading,
-      loadingTitle,
-      success,
-      fail,
-      complete,
-    }?: {
-      /**
-       * @desc 云端执行数据库查询的前或后，触发某个 action 函数操作，进行预处理或后处理
-       */
-      action?: string;
-      /**
-       * @desc 是否显示更新成功后的提示框
-       * @desc 默认为 true
-       */
-      showToast?: boolean;
-      /**
-       * @desc 新增成功后的 toast 提示
-       * @desc 默认为 修改成功
-       */
-      toastTitle?: string;
-      /**
-       * @desc 控制是否有弹出框
-       * @desc 默认为 true
-       */
-      needConfirm?: boolean;
-      /**
-       * @desc 是否显示 Loading
-       * @desc 默认为 true
-       */
-      needLoading?: boolean;
-      /**
-       * @desc loading 的标题
-       */
-      loadingTitle?: string;
-      /**
-       * @desc 成功回调
-       */
-      success?: ({ code, message }: { code: string; message: string }) => void | Promise<void>;
-      /**
-       * @desc 失败回调
-       */
-      fail?: ({ message: string }) => void | Promise<void>;
-      /**
-       * @desc 完成回调
-       */
-      complete?: () => void | Promise<void>;
-    },
-  ) => void;
+  update: _UnicloudDbUpdate;
   /**
    * @desc 获取 data
    */
@@ -338,14 +410,141 @@ export interface UnicloudDbProps {
    * @param pagination.size 每页数据量
    * @param pagination.count 数据总量
    */
-  onLoad: (data: any, ended: boolean, pagination: { size: number; count: number }) => void;
+  onLoad: _UnicloudDbLoad;
   /**
    * @desc 失败回调
    */
-  onError: (event: { message: string }) => void;
+  onError: _UnicloudDbError;
 }
 
 /**
  * @desc 数据库查询组件，对 uni-clientdb 的 js 库的再封装
  */
-export type UnicloudDb = Component<Partial<UnicloudDbProps>>;
+type _UnicloudDb = Component<Partial<_UnicloudDbProps>>;
+
+export {
+  _UnicloudDbSpaceInfoProvider as UnicloudDbSpaceInfoProvider,
+  _UnicloudDbSpaceInfo as UnicloudDbSpaceInfo,
+  _UnicloudDbPageData as UnicloudDbPageData,
+  _UnicloudDbLoadtime as UnicloudDbLoadtime,
+  _UnicloudDbLoadDataOptions as UnicloudDbLoadDataOptions,
+  _UnicloudDbLoadDataCallback as UnicloudDbLoadDataCallback,
+  _UnicloudDbLoadData as UnicloudDbLoadData,
+  _UnicloudDbLoadMore as UnicloudDbLoadMore,
+  _UnicloudDbClear as UnicloudDbClear,
+  _UnicloudDbReset as UnicloudDbReset,
+  _UnicloudDbRefresh as UnicloudDbRefresh,
+  _UnicloudDbId as UnicloudDbId,
+  _UnicloudDbRemoveOptions as UnicloudDbRemoveOptions,
+  _UnicloudDbRemove as UnicloudDbRemove,
+  _UnicloudDbAddOptions as UnicloudDbAddOptions,
+  _UnicloudDbAdd as UnicloudDbAdd,
+  _UnicloudDbUpdateOptions as UnicloudDbUpdateOptions,
+  _UnicloudDbUpdate as UnicloudDbUpdate,
+  _UnicloudDbLoad as UnicloudDbLoad,
+  _UnicloudDbError as UnicloudDbError,
+  _UnicloudDbProps as UnicloudDbProps,
+  _UnicloudDb as UnicloudDb,
+};
+
+declare global {
+  namespace UniHelper {
+    /**
+     * @desc 服务商
+     * @desc aliyun 阿里云
+     * @desc tencent 腾讯云
+     */
+    export type UnicloudDbSpaceInfoProvider = _UnicloudDbSpaceInfoProvider;
+    /**
+     * @desc 服务空间信息
+     */
+    export interface UnicloudDbSpaceInfo extends _UnicloudDbSpaceInfo {}
+    /**
+     * @desc 分页策略
+     * @desc add 下一页的数据追加到之前的数据中，常用于滚动到底加载下一页
+     * @desc replace 替换当前数据，常用于 PC 式交互，列表底部有页码分页按钮
+     */
+    export type UnicloudDbPageData = _UnicloudDbPageData;
+    /**
+     * @desc 加载数据时机
+     * @desc auto 页面就绪后或属性变化后加载数据
+     * @desc onready 页面就绪后不自动加载数据，属性变化后加载，适合在 onready 中接收上个页面的参数作为 where 条件时
+     * @desc manual 手动模式，不自动加载数据，如果涉及到分页，需要先手动修改当前页再调用加载数据
+     */
+    export type UnicloudDbLoadtime = _UnicloudDbLoadtime;
+    export interface UnicloudDbLoadDataOptions extends _UnicloudDbLoadDataOptions {}
+    export interface UnicloudDbLoadDataCallback extends _UnicloudDbLoadDataCallback {}
+    /**
+     * @desc 手动加载数据
+     * @param param.clear 是否清空数据和分页信息，默认为 false
+     * @param callback 回调函数，加载数据完或加载失败后触发
+     */
+    export interface UnicloudDbLoadData extends _UnicloudDbLoadData {}
+    /**
+     * @desc 加载更多数据，每加载成功一次，当前页 +1
+     */
+    export interface UnicloudDbLoadMore extends _UnicloudDbLoadMore {}
+    /**
+     * @desc 清空已加载的数据，但不会重置当前分页信息
+     */
+    export interface UnicloudDbClear extends _UnicloudDbClear {}
+    /**
+     * @desc 重置当前分页信息，但不会清空已加载的数据
+     */
+    export interface UnicloudDbReset extends _UnicloudDbReset {}
+    /**
+     * @desc 清空并重新加载当前页面数据
+     */
+    export interface UnicloudDbRefresh extends _UnicloudDbRefresh {}
+    /**
+     * @desc 单个数据 id
+     */
+    export type UnicloudDbId = _UnicloudDbId;
+    export interface UnicloudDbRemoveOptions extends _UnicloudDbRemoveOptions {}
+    /**
+     * @desc 删除一个 item
+     */
+    export interface UnicloudDbRemove extends _UnicloudDbRemove {}
+    export interface UnicloudDbAddOptions extends _UnicloudDbAddOptions {}
+    /**
+     * @desc 新增一个 item
+     */
+    export interface UnicloudDbAdd extends _UnicloudDbAdd {}
+    export interface UnicloudDbUpdateOptions extends _UnicloudDbUpdateOptions {}
+    /**
+     * @desc 更新一个 item
+     */
+    export interface UnicloudDbUpdate extends _UnicloudDbUpdate {}
+    /**
+     * @desc 成功回调
+     * @desc 联网返回结果后，若希望先修改下数据再渲染界面，则在本方法里对 data 进行修改
+     * @param data 当前查询结果
+     * @param ended 是否有更多数据
+     * @param pagination 分页信息
+     * @param pagination.size 每页数据量
+     * @param pagination.count 数据总量
+     */
+    export interface UnicloudDbLoad extends _UnicloudDbLoad {}
+    /**
+     * @desc 失败回调
+     */
+    export interface UnicloudDbError extends _UnicloudDbError {}
+    /**
+     * @desc 数据库查询组件属性
+     */
+    export interface UnicloudDbProps extends _UnicloudDbProps {}
+    /**
+     * @desc 数据库查询组件，对 uni-clientdb 的 js 库的再封装
+     */
+    export type UnicloudDb = _UnicloudDb;
+  }
+}
+
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /**
+     * @desc 数据库查询组件，对 uni-clientdb 的 js 库的再封装
+     */
+    UnicloudDb: _UnicloudDb;
+  }
+}
