@@ -252,14 +252,14 @@ interface _UnicloudDbUpdate {
  * @param pagination.size 每页数据量
  * @param pagination.count 数据总量
  */
-interface _UnicloudDbLoad {
+interface _UnicloudDbOnLoad {
   (data: any, ended: boolean, pagination: { size: number; count: number }): void;
 }
 
 /**
  * @desc 失败回调
  */
-interface _UnicloudDbError {
+interface _UnicloudDbOnError {
   (event: { message: string }): void;
 }
 
@@ -410,11 +410,11 @@ interface _UnicloudDbProps {
    * @param pagination.size 每页数据量
    * @param pagination.count 数据总量
    */
-  onLoad: _UnicloudDbLoad;
+  onLoad: _UnicloudDbOnLoad;
   /**
    * @desc 失败回调
    */
-  onError: _UnicloudDbError;
+  onError: _UnicloudDbOnError;
 }
 
 /**
@@ -441,8 +441,8 @@ export {
   _UnicloudDbAdd as UnicloudDbAdd,
   _UnicloudDbUpdateOptions as UnicloudDbUpdateOptions,
   _UnicloudDbUpdate as UnicloudDbUpdate,
-  _UnicloudDbLoad as UnicloudDbLoad,
-  _UnicloudDbError as UnicloudDbError,
+  _UnicloudDbOnLoad as UnicloudDbOnLoad,
+  _UnicloudDbOnError as UnicloudDbOnError,
   _UnicloudDbProps as UnicloudDbProps,
   _UnicloudDb as UnicloudDb,
 };
@@ -524,11 +524,11 @@ declare global {
      * @param pagination.size 每页数据量
      * @param pagination.count 数据总量
      */
-    export interface UnicloudDbLoad extends _UnicloudDbLoad {}
+    export interface UnicloudDbOnLoad extends _UnicloudDbOnLoad {}
     /**
      * @desc 失败回调
      */
-    export interface UnicloudDbError extends _UnicloudDbError {}
+    export interface UnicloudDbOnError extends _UnicloudDbOnError {}
     /**
      * @desc 数据库查询组件属性
      */
