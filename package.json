@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@dcloudio/types": "^3.0.20",
-    "@uni-helper/uni-app-types": "^0.3.0-2",
+    "@uni-helper/uni-app-types": "^0.3.0-3",
     "vue3": "npm:vue@^3.2.45"
   },
   "devDependencies": {
@@ -69,6 +69,14 @@
     "release-it": "^15.5.1",
     "typescript": "^4.9.4",
     "vitest": "^0.25.7"
+  },
+  "peerDependencies": {
+    "@uni-helper/uni-app-types": "^0.3.0-3"
+  },
+  "peerDependenciesMeta": {
+    "@uni-helper/uni-app-types": {
+      "optional": true
+    }
   },
   "packageManager": "pnpm@7.18.1",
   "engines": {
