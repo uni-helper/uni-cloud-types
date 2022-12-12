@@ -45,6 +45,43 @@ npm i -D @uni-helper/uni-cloud-types
 
 - 重启编辑器 / IDE
 
+### 标注类型
+
+推荐使用 `@uni-helper/uni-cloud-types` 导出的类型为变量标注类型。
+
+```vue
+<script setup lang="ts">
+import { ref } from 'vue';
+import type { UnicloudDbSpaceInfoProvider, UnicloudDbOnLoad } from '@uni-helper/uni-cloud-types';
+
+const spaceInfoProvider = ref<UnicloudDbSpaceInfoProvider>('aliyun');
+const onLoad: UnicloudDbOnLoad = (event) => {
+  ...
+};
+</script>
+
+<template>
+  <unicloud-db @load="onLoad"></unicloud-db>
+</template>
+```
+
+也可以直接使用命名空间来为变量标注类型。
+
+```vue
+<script setup lang="ts">
+import { ref } from 'vue';
+
+const spaceInfoProvider = ref<UniHelper.UnicloudDbSpaceInfoProvider>(50);
+const onLoad: UniHelper.UnicloudDbOnLoad = (event) => {
+  ...
+};
+</script>
+
+<template>
+  <unicloud-db @load="onLoad"></unicloud-db>
+</template>
+```
+
 请查看 [types](./types) 了解所有类型。
 
 ## 致谢
