@@ -76,7 +76,7 @@ importers:
       '@dcloudio/uni-mp-toutiao': 3.0.0-alpha-3061620221230002
       '@dcloudio/uni-mp-weixin': 3.0.0-alpha-3061620221230002
       '@dcloudio/uni-quickapp-webview': 3.0.0-alpha-3061620221230002
-      '@dcloudio/uni-stacktracey': 3.0.0-alpha-3061620221230002
+      '@dcloudio/uni-stacktracey': 3.0.0-alpha-3061720230111001
       '@dcloudio/vite-plugin-uni': 3.0.0-alpha-3061620221230002
       '@uni-helper/uni-app-types': ^0.3.1
       '@uni-helper/uni-cloud-types': workspace:*
@@ -103,7 +103,7 @@ importers:
       '@dcloudio/types': 3.2.7
       '@dcloudio/uni-automator': 3.0.0-alpha-3061620221230002_vue@3.2.45
       '@dcloudio/uni-cli-shared': 3.0.0-alpha-3061620221230002_vue@3.2.45
-      '@dcloudio/uni-stacktracey': 3.0.0-alpha-3061620221230002
+      '@dcloudio/uni-stacktracey': 3.0.0-alpha-3061720230111001
       '@dcloudio/vite-plugin-uni': 3.0.0-alpha-3061620221230002_vite@4.0.4+vue@3.2.45
       '@uni-helper/uni-app-types': 0.3.1_typescript@4.9.4
       '@uni-helper/uni-cloud-types': link:..
@@ -1063,8 +1063,8 @@ packages:
     dependencies:
       '@vue/shared': 3.2.45
 
-  /@dcloudio/uni-stacktracey/3.0.0-alpha-3061620221230002:
-    resolution: {integrity: sha512-PBdExbS6rXTcksBJCxrpmit/Pgqbkr+wWpd65rtUatuLylwmkvnWb5el7CE5v/rRjj/st67NeU0EA2zo1OSwOQ==}
+  /@dcloudio/uni-stacktracey/3.0.0-alpha-3061720230111001:
+    resolution: {integrity: sha512-3oR767KkYWDZA03vuIKXhgig4YK814iZgeF1Q2kOcSi4unipLl0NJaWBGTOImEdMNYzVnmtGaR0eSiimvUrrvQ==}
     dev: true
 
   /@dcloudio/uni-stat/3.0.0-alpha-3061620221230002_vue@3.2.45:
