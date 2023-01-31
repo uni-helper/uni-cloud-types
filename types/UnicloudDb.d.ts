@@ -3,9 +3,9 @@ import { Component, AnyRecord } from '@uni-helper/uni-app-types';
 /**
  * 服务商
  *
- * Aliyun 阿里云
+ * aliyun 阿里云
  *
- * Tencent 腾讯云
+ * tencent 腾讯云
  */
 type _UnicloudDbSpaceInfoProvider = 'aliyun' | 'tencent';
 
@@ -14,9 +14,9 @@ interface _UnicloudDbSpaceInfo {
   /**
    * 服务商
    *
-   * Aliyun 阿里云
+   * aliyun 阿里云
    *
-   * Tencent 腾讯云
+   * tencent 腾讯云
    */
   provider: _UnicloudDbSpaceInfoProvider;
   /** 服务空间 ID */
@@ -30,20 +30,20 @@ interface _UnicloudDbSpaceInfo {
 /**
  * 分页策略
  *
- * Add 下一页的数据追加到之前的数据中，常用于滚动到底加载下一页
+ * add 下一页的数据追加到之前的数据中，常用于滚动到底加载下一页
  *
- * Replace 替换当前数据，常用于 PC 式交互，列表底部有页码分页按钮
+ * replace 替换当前数据，常用于 PC 式交互，列表底部有页码分页按钮
  */
 type _UnicloudDbPageData = 'add' | 'replace';
 
 /**
  * 加载数据时机
  *
- * Auto 页面就绪后或属性变化后加载数据
+ * auto 页面就绪后或属性变化后加载数据
  *
- * Onready 页面就绪后不自动加载数据，属性变化后加载，适合在 onready 中接收上个页面的参数作为 where 条件时
+ * onready 页面就绪后不自动加载数据，属性变化后加载，适合在 onready 中接收上个页面的参数作为 where 条件时
  *
- * Manual 手动模式，不自动加载数据，如果涉及到分页，需要先手动修改当前页再调用加载数据
+ * manual 手动模式，不自动加载数据，如果涉及到分页，需要先手动修改当前页再调用加载数据
  */
 type _UnicloudDbLoadtime = 'auto' | 'onready' | 'manual';
 
@@ -112,7 +112,7 @@ interface _UnicloudDbRemoveOptions {
    * 默认为 true
    */
   needLoading?: boolean;
-  /** Loading 的标题 */
+  /** loading 的标题 */
   loadingTitle?: string;
   /** 成功回调 */
   success?: ({ code, message }: { code: string; message: string }) => void | Promise<void>;
@@ -148,7 +148,7 @@ interface _UnicloudDbAddOptions {
    * 默认为 true
    */
   needLoading?: boolean;
-  /** Loading 的标题 */
+  /** loading 的标题 */
   loadingTitle?: string;
   /** 成功回调 */
   success?: ({ code, message }: { code: string; message: string }) => void | Promise<void>;
@@ -190,7 +190,7 @@ interface _UnicloudDbUpdateOptions {
    * 默认为 true
    */
   needLoading?: boolean;
-  /** Loading 的标题 */
+  /** loading 的标题 */
   loadingTitle?: string;
   /** 成功回调 */
   success?: ({ code, message }: { code: string; message: string }) => void | Promise<void>;
@@ -242,9 +242,9 @@ interface _UnicloudDbProps {
   /**
    * 分页策略
    *
-   * Add 下一页的数据追加到之前的数据中，常用于滚动到底加载下一页
+   * add 下一页的数据追加到之前的数据中，常用于滚动到底加载下一页
    *
-   * Replace 替换当前数据，常用于 PC 式交互，列表底部有页码分页按钮
+   * replace 替换当前数据，常用于 PC 式交互，列表底部有页码分页按钮
    *
    * 默认为 add
    */
@@ -262,9 +262,9 @@ interface _UnicloudDbProps {
   /**
    * 指定查询结果是否仅返回数组第一条数据
    *
-   * False：结果数据外会再用数组包裹一层，一般用于列表页
+   * false 结果数据外会再用数组包裹一层，一般用于列表页
    *
-   * True：直接返回结果数据，一般用于非列表页
+   * true 直接返回结果数据，一般用于非列表页
    *
    * 默认 false
    */
@@ -278,7 +278,7 @@ interface _UnicloudDbProps {
   /** 是否查询树状结构数据 */
   gettree: boolean;
   /**
-   * Gettree 的第一层级条件
+   * gettree 的第一层级条件
    *
    * 此初始条件可以省略，不传 startWith 时默认从最顶级开始查询
    */
@@ -303,11 +303,11 @@ interface _UnicloudDbProps {
   /**
    * 加载数据时机
    *
-   * Auto 页面就绪后或属性变化后加载数据
+   * auto 页面就绪后或属性变化后加载数据
    *
-   * Onready 页面就绪后不自动加载数据，属性变化后加载，适合在 onready 中接收上个页面的参数作为 where 条件时
+   * onready 页面就绪后不自动加载数据，属性变化后加载，适合在 onready 中接收上个页面的参数作为 where 条件时
    *
-   * Manual 手动模式，不自动加载数据，如果涉及到分页，需要先手动修改当前页再调用加载数据
+   * manual 手动模式，不自动加载数据，如果涉及到分页，需要先手动修改当前页再调用加载数据
    *
    * 默认 auto
    */
@@ -392,9 +392,9 @@ declare global {
     /**
      * 服务商
      *
-     * Aliyun 阿里云
+     * aliyun 阿里云
      *
-     * Tencent 腾讯云
+     * tencent 腾讯云
      */
     export type UnicloudDbSpaceInfoProvider = _UnicloudDbSpaceInfoProvider;
     /** 服务空间信息 */
@@ -402,19 +402,19 @@ declare global {
     /**
      * 分页策略
      *
-     * Add 下一页的数据追加到之前的数据中，常用于滚动到底加载下一页
+     * add 下一页的数据追加到之前的数据中，常用于滚动到底加载下一页
      *
-     * Replace 替换当前数据，常用于 PC 式交互，列表底部有页码分页按钮
+     * replace 替换当前数据，常用于 PC 式交互，列表底部有页码分页按钮
      */
     export type UnicloudDbPageData = _UnicloudDbPageData;
     /**
      * 加载数据时机
      *
-     * Auto 页面就绪后或属性变化后加载数据
+     * auto 页面就绪后或属性变化后加载数据
      *
-     * Onready 页面就绪后不自动加载数据，属性变化后加载，适合在 onready 中接收上个页面的参数作为 where 条件时
+     * onready 页面就绪后不自动加载数据，属性变化后加载，适合在 onready 中接收上个页面的参数作为 where 条件时
      *
-     * Manual 手动模式，不自动加载数据，如果涉及到分页，需要先手动修改当前页再调用加载数据
+     * manual 手动模式，不自动加载数据，如果涉及到分页，需要先手动修改当前页再调用加载数据
      */
     export type UnicloudDbLoadtime = _UnicloudDbLoadtime;
     export interface UnicloudDbLoadDataOptions extends _UnicloudDbLoadDataOptions {}
