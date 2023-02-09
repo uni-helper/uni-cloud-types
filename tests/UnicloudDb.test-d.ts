@@ -22,6 +22,7 @@ import type {
   UnicloudDbOnError,
   UnicloudDbProps,
   UnicloudDb,
+  UnicloudDbInstance,
 } from '@/UnicloudDb';
 
 describe('UnicloudDb', () => {
@@ -90,4 +91,7 @@ describe('UnicloudDb', () => {
 
   expectTypeOf<UnicloudDb>().not.toBeAny();
   expectTypeOf<UnicloudDb>().toEqualTypeOf<UniHelper.UnicloudDb>();
+
+  expectTypeOf<UnicloudDbInstance>().not.toBeAny();
+  expectTypeOf<UnicloudDbInstance>().toEqualTypeOf<UniHelper.UnicloudDbInstance>();
 });
