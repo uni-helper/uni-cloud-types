@@ -226,7 +226,7 @@ interface _UnicloudDbOnError {
 }
 
 /** 数据库查询组件属性 */
-interface _UnicloudDbProps {
+type _UnicloudDbProps = Partial<{
   /** 服务空间信息 */
   spaceInfo: _UnicloudDbSpaceInfo;
   /** 表名 */
@@ -357,10 +357,13 @@ interface _UnicloudDbProps {
   onLoad: _UnicloudDbOnLoad;
   /** 失败回调 */
   onError: _UnicloudDbOnError;
-}
+}>;
 
 /** 数据库查询组件，对 uni-clientdb 的 js 库的再封装 */
-type _UnicloudDb = Component<Partial<_UnicloudDbProps>>;
+type _UnicloudDb = Component<_UnicloudDbProps>;
+
+/** 数据库查询组件实例 */
+type _UnicloudDbInstance = InstanceType<_UnicloudDb>;
 
 export {
   _UnicloudDbSpaceInfoProvider as UnicloudDbSpaceInfoProvider,
@@ -385,6 +388,7 @@ export {
   _UnicloudDbOnError as UnicloudDbOnError,
   _UnicloudDbProps as UnicloudDbProps,
   _UnicloudDb as UnicloudDb,
+  _UnicloudDbInstance as UnicloudDbInstance,
 };
 
 declare global {
@@ -460,9 +464,11 @@ declare global {
     /** 失败回调 */
     export interface UnicloudDbOnError extends _UnicloudDbOnError {}
     /** 数据库查询组件属性 */
-    export interface UnicloudDbProps extends _UnicloudDbProps {}
+    export type UnicloudDbProps = _UnicloudDbProps;
     /** 数据库查询组件，对 uni-clientdb 的 js 库的再封装 */
     export type UnicloudDb = _UnicloudDb;
+    /** 数据库查询组件实例 */
+    export type UnicloudDbInstance = _UnicloudDbInstance;
   }
 }
 
