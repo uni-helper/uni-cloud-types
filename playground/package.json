@@ -60,6 +60,6 @@
     "@uni-helper/uni-app-types": "0.4.0",
     "@uni-helper/uni-cloud-types": "workspace:*",
     "typescript": "4.9.5",
-    "vite": "4.0.4"
+    "vite": "4.1.4"
   }
 }
