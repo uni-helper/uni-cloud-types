@@ -44,7 +44,7 @@
   },
   "dependencies": {
     "@dcloudio/types": "^3.2.11",
-    "@uni-helper/uni-app-types": "^0.5.0",
+    "@uni-helper/uni-app-types": "^0.5.1",
     "vue3": "npm:vue@^3.2.47"
   },
   "devDependencies": {

@@ -13,7 +13,7 @@ importers:
       '@types/node': ^18.14.6
       '@typescript-eslint/eslint-plugin': ^5.54.0
       '@typescript-eslint/parser': ^5.54.0
-      '@uni-helper/uni-app-types': ^0.5.0
+      '@uni-helper/uni-app-types': ^0.5.1
       '@vitest/coverage-c8': ^0.29.2
       bumpp: ^9.0.0
       c8: ^7.13.0
@@ -34,7 +34,7 @@ importers:
       vue3: npm:vue@^3.2.47
     dependencies:
       '@dcloudio/types': 3.2.11
-      '@uni-helper/uni-app-types': 0.5.0_typescript@4.9.5
+      '@uni-helper/uni-app-types': 0.5.1_typescript@4.9.5
       vue3: /vue/3.2.47
     devDependencies:
       '@commitlint/cli': 17.4.4
@@ -82,7 +82,7 @@ importers:
       '@dcloudio/uni-quickapp-webview': 3.0.0-alpha-3070620230227001
       '@dcloudio/uni-stacktracey': 3.0.0-alpha-3070620230227001
       '@dcloudio/vite-plugin-uni': 3.0.0-alpha-3070620230227001
-      '@uni-helper/uni-app-types': 0.5.0
+      '@uni-helper/uni-app-types': 0.5.1
       '@uni-helper/uni-cloud-types': workspace:*
       typescript: 4.9.5
       vite: 4.1.4
@@ -109,7 +109,7 @@ importers:
       '@dcloudio/uni-cli-shared': 3.0.0-alpha-3070620230227001_vue@3.2.47
       '@dcloudio/uni-stacktracey': 3.0.0-alpha-3070620230227001
       '@dcloudio/vite-plugin-uni': 3.0.0-alpha-3070620230227001_vite@4.1.4+vue@3.2.47
-      '@uni-helper/uni-app-types': 0.5.0_typescript@4.9.5
+      '@uni-helper/uni-app-types': 0.5.1_typescript@4.9.5
       '@uni-helper/uni-cloud-types': link:..
       typescript: 4.9.5
       vite: 4.1.4
@@ -3274,8 +3274,8 @@ packages:
       eslint-visitor-keys: 3.3.0
     dev: true
 
-  /@uni-helper/uni-app-types/0.5.0_typescript@4.9.5:
-    resolution: {integrity: sha512-qETJtH/gHCXnkUozbzS4fcRrqk+NIQy3kubP6/+BEi3Z++hsNhdwK4FVPFaerC2mRAn6G8mpMUXlQo8T2B2fog==}
+  /@uni-helper/uni-app-types/0.5.1_typescript@4.9.5:
+    resolution: {integrity: sha512-rJsBDyQAsjSK+1I/wipqE0UA94xNsjWJhuJ6geZLTHNup1zeuq1ilx8L2IdbBnAEPLlZDHirNr78zQ3Vs33Zyg==}
     engines: {node: '>=14.18'}
     peerDependencies:
       typescript: ^4.8.0
