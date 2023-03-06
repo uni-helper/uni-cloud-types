@@ -1,4 +1,4 @@
-import { Component } from '@uni-helper/uni-app-types';
+import type { Component } from '@uni-helper/uni-app-types';
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 type _TemplateProps = Partial<{}>;

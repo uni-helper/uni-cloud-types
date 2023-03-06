@@ -117,7 +117,7 @@ interface _UnicloudDbRemoveOptions {
   /** 成功回调 */
   success?: ({ code, message }: { code: string; message: string }) => void | Promise<void>;
   /** 失败回调 */
-  fail?: ({ message: string }) => void | Promise<void>;
+  fail?: ({ message }: { message: string }) => void | Promise<void>;
   /** 完成回调 */
   complete?: () => void | Promise<void>;
 }
@@ -153,7 +153,7 @@ interface _UnicloudDbAddOptions {
   /** 成功回调 */
   success?: ({ code, message }: { code: string; message: string }) => void | Promise<void>;
   /** 失败回调 */
-  fail?: ({ message: string }) => void | Promise<void>;
+  fail?: ({ message }: { message: string }) => void | Promise<void>;
   /** 完成回调 */
   complete?: () => void | Promise<void>;
 }
@@ -195,7 +195,7 @@ interface _UnicloudDbUpdateOptions {
   /** 成功回调 */
   success?: ({ code, message }: { code: string; message: string }) => void | Promise<void>;
   /** 失败回调 */
-  fail?: ({ message: string }) => void | Promise<void>;
+  fail?: ({ message }: { message: string }) => void | Promise<void>;
   /** 完成回调 */
   complete?: () => void | Promise<void>;
 }
