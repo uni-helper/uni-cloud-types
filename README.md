@@ -82,7 +82,7 @@ const onLoad: UniHelper.UnicloudDbOnLoad = (event) => {
 </template>
 ```
 
-请查看 [types](./types) 了解所有类型。
+请查看 [src](./src) 了解所有类型。
 
 ## 致谢
 
