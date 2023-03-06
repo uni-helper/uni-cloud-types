@@ -33,10 +33,11 @@
     "check:types": "tsc --noEmit",
     "dev": "rollup -c --watch",
     "lint": "run-p lint:eslint lint:markdownlint lint:publint check:types test:coverage",
-    "lint:eslint": "eslint ./src --fix --cache",
+    "lint:eslint": "eslint ./src --fix --cache --ignore-path=.gitignore",
     "lint:markdownlint": "markdownlint . --fix --ignore=CHANGELOG.md --ignore-path=.gitignore",
     "lint:publint": "publint",
     "prepare": "is-ci || husky install",
+    "prepublishOnly": "pnpm run build",
     "release": "pnpm install && pnpm run lint && bumpp",
     "test": "vitest typecheck --run",
     "test:coverage": "vitest typecheck --run --coverage"
