@@ -1,5 +1,9 @@
 # 改动日志
 
+## 0.5.1 (2023-04-27)
+
+- fix: 支持 `Vue Language Features (Volar)` & `vue-tsc` 1.6.0
+
 ## 0.5.0 (2023-03-06)
 
 - build: 现在使用 `rollup` 打包生成类型文件
