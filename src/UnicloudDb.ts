@@ -391,7 +391,20 @@ export {
   _UnicloudDbInstance as UnicloudDbInstance,
 };
 
+declare module '@vue/runtime-core' {
+  export interface GlobalComponents {
+    /** 数据库查询组件，对 uni-clientdb 的 js 库的再封装 */
+    UnicloudDb: _UnicloudDb;
+  }
+}
+
 declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      /** 数据库查询组件，对 uni-clientdb 的 js 库的再封装 */
+      UnicloudDb: _UnicloudDb;
+    }
+  }
   namespace UniHelper {
     /**
      * 服务商
@@ -469,12 +482,5 @@ declare global {
     export type UnicloudDb = _UnicloudDb;
     /** 数据库查询组件实例 */
     export type UnicloudDbInstance = _UnicloudDbInstance;
-  }
-}
-
-declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    /** 数据库查询组件，对 uni-clientdb 的 js 库的再封装 */
-    UnicloudDb: _UnicloudDb;
   }
 }
