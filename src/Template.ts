@@ -20,11 +20,6 @@ export {
 // }
 
 // declare global {
-//   namespace JSX {
-//     interface IntrinsicElements {
-//       Template: _Template;
-//     }
-//   }
 //   namespace UniHelper {
 //     export type TemplateProps = _TemplateProps;
 //     export type Template = _Template;

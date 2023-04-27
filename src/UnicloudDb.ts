@@ -399,12 +399,6 @@ declare module '@vue/runtime-core' {
 }
 
 declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      /** 数据库查询组件，对 uni-clientdb 的 js 库的再封装 */
-      UnicloudDb: _UnicloudDb;
-    }
-  }
   namespace UniHelper {
     /**
      * 服务商
