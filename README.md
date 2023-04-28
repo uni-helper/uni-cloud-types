@@ -34,7 +34,7 @@ npm i -D @uni-helper/uni-cloud-types
   ```json
   {
     "compilerOptions": {
-      "types": ["@dcloudio/types", "@uni-helper/uni-app-types"]
+      "types": ["@dcloudio/types", "@uni-helper/uni-cloud-types"]
     },
     "include": ["src/**/*.vue"]
   }
@@ -48,7 +48,7 @@ npm i -D @uni-helper/uni-cloud-types
   ```json
   {
     "compilerOptions": {
-      "types": ["@dcloudio/types", "@uni-helper/uni-app-types"]
+      "types": ["@dcloudio/types", "@uni-helper/uni-cloud-types"]
     },
     "vueCompilerOptions": {
       "nativeTags": ["block", "component", "template", "slot"]
@@ -65,7 +65,7 @@ npm i -D @uni-helper/uni-cloud-types
   ```json
   {
     "compilerOptions": {
-      "types": ["@dcloudio/types", "@uni-helper/uni-app-types"]
+      "types": ["@dcloudio/types", "@uni-helper/uni-cloud-types"]
     },
     "vueCompilerOptions": {
       "experimentalRuntimeMode": "runtime-uni-app"
