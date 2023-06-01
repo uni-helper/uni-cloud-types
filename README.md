@@ -22,9 +22,19 @@
 
 - 安装依赖
 
-```shell
-npm i -D @uni-helper/uni-cloud-types
-```
+  ```shell
+  npm i -D @uni-helper/uni-cloud-types
+  ```
+
+  <details>
+    <summary>yarn v2/v3</summary>
+    <p>请参考 <a href="https://yarnpkg.com/configuration/yarnrc/#nodeLinker">文档</a> 设置 <code>nodeLinker</code> 为 <code>node_modules</code>。</p>
+  </details>
+
+  <details>
+    <summary>pnpm</summary>
+    <p>请参考 <a href="https://pnpm.io/npmrc#shamefully-hoist">文档</a> 设置 <code>shamefully-hoist</code> 为 <code>true</code>。</p>
+  </details>
 
 - 配置 `tsconfig.json`，确保 `compilerOptions.types` 中含有 `@dcloudio/types` 和 `@uni-helper/uni-cloud-types` 且 `include` 包含了对应的 `vue` 文件
 
