@@ -23,7 +23,7 @@ import type {
   UnicloudDbProps,
   UnicloudDb,
   UnicloudDbInstance,
-} from '@/UnicloudDb';
+} from '@/unicloud-db';
 
 describe('UnicloudDb', () => {
   expectTypeOf<UnicloudDbSpaceInfoProvider>().toBeString();
