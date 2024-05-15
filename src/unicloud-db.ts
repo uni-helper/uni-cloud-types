@@ -63,7 +63,10 @@ interface _UnicloudDbLoadDataCallback {
  * @param callback 回调函数，加载数据完或加载失败后触发
  */
 interface _UnicloudDbLoadData {
-  (options?: _UnicloudDbLoadDataOptions, callback?: _UnicloudDbLoadDataCallback): void;
+  (
+    options?: _UnicloudDbLoadDataOptions,
+    callback?: _UnicloudDbLoadDataCallback,
+  ): void;
 }
 
 /** 加载更多数据，每加载成功一次，当前页 +1 */
@@ -115,7 +118,13 @@ interface _UnicloudDbRemoveOptions {
   /** loading 的标题 */
   loadingTitle?: string;
   /** 成功回调 */
-  success?: ({ code, message }: { code: string; message: string }) => void | Promise<void>;
+  success?: ({
+    code,
+    message,
+  }: {
+    code: string;
+    message: string;
+  }) => void | Promise<void>;
   /** 失败回调 */
   fail?: ({ message }: { message: string }) => void | Promise<void>;
   /** 完成回调 */
@@ -124,7 +133,10 @@ interface _UnicloudDbRemoveOptions {
 
 /** 删除一个 item */
 interface _UnicloudDbRemove {
-  (id: _UnicloudDbId | _UnicloudDbId[], options?: _UnicloudDbRemoveOptions): void;
+  (
+    id: _UnicloudDbId | _UnicloudDbId[],
+    options?: _UnicloudDbRemoveOptions,
+  ): void;
 }
 
 interface _UnicloudDbAddOptions {
@@ -151,7 +163,13 @@ interface _UnicloudDbAddOptions {
   /** loading 的标题 */
   loadingTitle?: string;
   /** 成功回调 */
-  success?: ({ code, message }: { code: string; message: string }) => void | Promise<void>;
+  success?: ({
+    code,
+    message,
+  }: {
+    code: string;
+    message: string;
+  }) => void | Promise<void>;
   /** 失败回调 */
   fail?: ({ message }: { message: string }) => void | Promise<void>;
   /** 完成回调 */
@@ -193,7 +211,13 @@ interface _UnicloudDbUpdateOptions {
   /** loading 的标题 */
   loadingTitle?: string;
   /** 成功回调 */
-  success?: ({ code, message }: { code: string; message: string }) => void | Promise<void>;
+  success?: ({
+    code,
+    message,
+  }: {
+    code: string;
+    message: string;
+  }) => void | Promise<void>;
   /** 失败回调 */
   fail?: ({ message }: { message: string }) => void | Promise<void>;
   /** 完成回调 */
@@ -202,7 +226,11 @@ interface _UnicloudDbUpdateOptions {
 
 /** 更新一个 item */
 interface _UnicloudDbUpdate {
-  (id: _UnicloudDbId, value: AnyRecord, options?: _UnicloudDbUpdateOptions): void;
+  (
+    id: _UnicloudDbId,
+    value: AnyRecord,
+    options?: _UnicloudDbUpdateOptions,
+  ): void;
 }
 
 /**
@@ -217,7 +245,11 @@ interface _UnicloudDbUpdate {
  * @param pagination.count 数据总量
  */
 interface _UnicloudDbOnLoad {
-  (data: any, ended: boolean, pagination: { size: number; count: number }): void;
+  (
+    data: any,
+    ended: boolean,
+    pagination: { size: number; count: number },
+  ): void;
 }
 
 /** 失败回调 */
@@ -428,8 +460,10 @@ declare global {
      * manual 手动模式，不自动加载数据，如果涉及到分页，需要先手动修改当前页再调用加载数据
      */
     export type UnicloudDbLoadtime = _UnicloudDbLoadtime;
-    export interface UnicloudDbLoadDataOptions extends _UnicloudDbLoadDataOptions {}
-    export interface UnicloudDbLoadDataCallback extends _UnicloudDbLoadDataCallback {}
+    export interface UnicloudDbLoadDataOptions
+      extends _UnicloudDbLoadDataOptions {}
+    export interface UnicloudDbLoadDataCallback
+      extends _UnicloudDbLoadDataCallback {}
     /**
      * 手动加载数据
      *

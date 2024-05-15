@@ -1,1 +1,1 @@
-export * from './UnicloudDb';
+export * from './unicloud-db';
