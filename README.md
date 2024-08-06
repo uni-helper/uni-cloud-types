@@ -1,5 +1,7 @@
 # @uni-helper/uni-cloud-types
 
+**该仓库已废弃，请查看 [@uni-helper/uni-types](https://github.com/uni-helper/uni-types) 获取最新支持。**
+
 [![License](https://img.shields.io/github/license/uni-helper/uni-cloud-types)](https://github.com/uni-helper/uni-cloud-types/blob/main/LICENSE)
 
 [![npm](https://img.shields.io/npm/v/@uni-helper/uni-cloud-types)](https://www.npmjs.com/package/@uni-helper/uni-cloud-types)
@@ -39,7 +41,7 @@
 - 配置 `tsconfig.json`，确保 `compilerOptions.types` 中含有 `@dcloudio/types`、`@uni-helper/uni-app-types` 和 `@uni-helper/uni-cloud-types`，且 `include` 包含了对应的 `vue` 文件
 
   <details>
-    <summary>2.0.14 <= <code>Vue Language Features (Volar)</code> & <code>vue-tsc</code></summary>
+    <summary>2.0.14 <= <code>Vue Language Features (Volar)</code> & <code>vue-tsc</code> <= 2.0.21</summary>
 
   ```json
   {
